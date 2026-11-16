@@ -7,15 +7,15 @@ Built with PyTorch and Torchvision, this project explores the complete object de
 ## Dataset
 
 - **Source:** [GC10-DET – Kaggle](https://www.kaggle.com/datasets/alex000kim/gc10det)
-- **Images:** 2,294 after cleaning and deduplication
+- **Images:** 2,292 after cleaning
 - **Classes:** 10 steel surface defect categories
 - **Annotations:** PASCAL VOC XML
 - **Split:** 70% training, 15% validation, 15% testing
 
-**Preprocessing included:**
-- Converting grayscale images to 3 channels.
-- Removing images without annotations and duplicates.
-- Correcting approximately 130 annotation files with class-label typos.
+**Preprocessing:**
+- Converted grayscale images to 3 channels.
+- Removed images with empty annotations and duplicate images.
+- Corrected annotation files containing class-label typos.
 
 ## Model & Training
 
@@ -23,8 +23,8 @@ Built with PyTorch and Torchvision, this project explores the complete object de
 - **Pretrained weights:** COCO
 - **Framework:** PyTorch / Torchvision
 - **Optimizer:** SGD (learning rate: 0.005, momentum: 0.9)
-- **Scheduler:** StepLR
-- **Training:** 7 epochs on Google Colab (T4 GPU)
+- **Scheduler:** StepLR (step size: 5, gamma: 0.1)
+- **Training:** 10 epochs on Google Colab (T4 GPU)
 
 The classification head was replaced to support 10 defect classes plus background.
 
@@ -45,13 +45,13 @@ Validation and test results are close at the aggregate level, providing an encou
 - No data augmentation in the baseline.
 - Imbalanced defect categories.
 - Lower performance on visually challenging classes, particularly `inclusion` and `crease`.
-- Limited training duration (7 epochs).
+- Limited training duration.
 
 **Future improvements:** Data augmentation, class-imbalance handling, longer training, hyperparameter tuning, and experiments with alternative detection architectures.
 
 ## Repository Contents
 
-- `gc10_det_faster_rcnn.ipynb` — Data preprocessing, annotation cleaning, model training, and evaluation.
+- `CVproject.ipynb` — Dataset preprocessing, annotation cleaning, model training, inference, and evaluation.
 - `requirements.txt` — Project dependencies.
 
 ## Acknowledgements
