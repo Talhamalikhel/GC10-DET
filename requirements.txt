@@ -3,4 +3,7 @@ torchvision
 torchmetrics
 pillow
 matplotlib
+pandas
+scikit-learn
+openpyxl
 kagglehub
